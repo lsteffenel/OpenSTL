@@ -117,25 +117,29 @@ def show_video_gif_multiple(prev, true, pred, vmax=0.6, vmin=0.0, cmap='gray', n
         fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(9, 6))
         for t, ax in enumerate(axes):
             if t == 0:
-                plt.text(0.3, 1.05, 'ground truth', fontsize=15, color='green', transform=ax.transAxes)
+                #plt.text(0.3, 1.05, 'ground truth', fontsize=15, color='green', transform=ax.transAxes)
                 if i < prev_frames:
+                    plt.text(0.3, 1.05, 'input', fontsize=15, color='green', transform=ax.transAxes)
                     if use_rgb:
                         im = ax.imshow(cv2.cvtColor(prev[i], cv2.COLOR_BGR2RGB))
                     else:
                         im = ax.imshow(prev[i], cmap=cmap, norm=norm)
                 else:
+                    plt.text(0.3, 1.05, 'ground truth', fontsize=15, color='green', transform=ax.transAxes)
                     if use_rgb:
                         im = ax.imshow(cv2.cvtColor(true[i-frames], cv2.COLOR_BGR2RGB))
                     else:
                         im = ax.imshow(true[i-frames], cmap=cmap, norm=norm)
             elif t == 1:
-                plt.text(0.2, 1.05, 'predicted frames', fontsize=15, color='red', transform=ax.transAxes)
+                #plt.text(0.2, 1.05, 'predicted frames', fontsize=15, color='red', transform=ax.transAxes)
                 if i < prev_frames:
+                    plt.text(0.2, 1.05, 'input', fontsize=15, color='green', transform=ax.transAxes)
                     if use_rgb:
                         im = ax.imshow(cv2.cvtColor(prev[i], cv2.COLOR_BGR2RGB))
                     else:
                         im = ax.imshow(prev[i], cmap=cmap, norm=norm)
                 else:
+                    plt.text(0.2, 1.05, 'predicted frames', fontsize=15, color='red', transform=ax.transAxes)
                     if use_rgb:
                         im = ax.imshow(cv2.cvtColor(pred[i-frames], cv2.COLOR_BGR2RGB))
                     else:
