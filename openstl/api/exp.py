@@ -64,7 +64,7 @@ class BaseExperiment(object):
 
         ckpt_callback = BestCheckpointCallback(
             monitor=args.metric_for_bestckpt,
-            filename='best-{epoch:02d}-{val_loss:.3f}',
+            filename='best-{epoch:02d}-{val_loss:.8f}',
             mode='min',
             save_last=True,
             dirpath=ckpt_dir,
