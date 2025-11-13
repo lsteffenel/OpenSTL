@@ -154,7 +154,10 @@ def show_video_gif_multiple(prev, true, pred, vmax=0.6, vmin=0.0, cmap='gray', n
     if out_path is not None:
         if not out_path.endswith('gif'):
             out_path = out_path + '.gif'
-        imageio.mimsave(out_path, images)
+        new_gif = imageio.get_writer(out_path,fps = 2)
+        new_gif.append_data(images)
+        #imageio.mimsave(out_path, images)
+
 
 
 def show_video_gif_single(data, out_path=None, use_rgb=False):
